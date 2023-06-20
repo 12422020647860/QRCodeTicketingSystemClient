@@ -1,5 +1,37 @@
-function App() {
-  return <div></div>;
-}
+import React, { useContext } from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { ContextProvider, AuthContext } from "./contexts/AuthContext";
+import SignIn from "./pages/signIn";
+import SignUp from "./pages/signUp";
+import Home from "./pages/home";
+import Recharge from "./pages/recharge";
 
-export default App;
+const Layout = () => {
+  const { isSignedIn } = useContext(AuthContext);
+  return (
+    <RouterProvider
+      router={createBrowserRouter([
+        {
+          path: "/",
+          element: isSignedIn ? <Home /> : <SignIn />,
+        },
+        {
+          path: "register",
+          element: <SignUp />,
+        },
+        {
+          path: "recharge",
+          element: isSignedIn ? <Recharge /> : <SignIn />,
+        },
+      ])}
+    />
+  );
+};
+
+export default () => {
+  return (
+    <ContextProvider>
+      <Layout />
+    </ContextProvider>
+  );
+};
