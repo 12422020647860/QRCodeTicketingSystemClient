@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 import { get as getCard, update as updateCard } from "../../services/cards";
+import { add as addTransaction } from "../../services/transactions";
 import { getAll as getTicketsTypes } from "../../services/ticketsTypes";
 import QRCode from "react-qr-code";
 import AppBar from "../../components/appBar";
@@ -30,9 +31,16 @@ export default () => {
 
   const handleSubmitClick = () => {
     setSyncing(true);
-    updateCard(card.id, {
-      balance: parseInt(card.balance) + parseInt(balance),
-    }).then((card) => {
+    Promise.all([
+      updateCard(card.id, {
+        balance: parseInt(card.balance) + parseInt(balance),
+      }),
+      addTransaction({
+        cardId: card.id,
+        uId: user.uid,
+        amount: parseInt(balance),
+      }),
+    ]).then(([card, transaction]) => {
       setBalance("");
       setCard(card);
       setSyncing(false);
