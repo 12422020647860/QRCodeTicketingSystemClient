@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createHashRouter, RouterProvider } from "react-router-dom";
 import { ContextProvider, AuthContext } from "./contexts/AuthContext";
 import SignIn from "./pages/signIn";
 import SignUp from "./pages/signUp";
@@ -10,7 +10,7 @@ const Layout = () => {
   const { isSignedIn } = useContext(AuthContext);
   return (
     <RouterProvider
-      router={createBrowserRouter([
+      router={createHashRouter([
         {
           path: "/",
           element: isSignedIn ? <Home /> : <SignIn />,
