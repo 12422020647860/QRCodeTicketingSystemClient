@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/QRCodeTicketingSystemClient/static/css/main.e6c13ad2.css",
-    "main.js": "/QRCodeTicketingSystemClient/static/js/main.18f6c031.js",
+    "main.js": "/QRCodeTicketingSystemClient/static/js/main.e989929c.js",
     "static/js/787.706db8dd.chunk.js": "/QRCodeTicketingSystemClient/static/js/787.706db8dd.chunk.js",
     "index.html": "/QRCodeTicketingSystemClient/index.html",
     "main.e6c13ad2.css.map": "/QRCodeTicketingSystemClient/static/css/main.e6c13ad2.css.map",
-    "main.18f6c031.js.map": "/QRCodeTicketingSystemClient/static/js/main.18f6c031.js.map",
+    "main.e989929c.js.map": "/QRCodeTicketingSystemClient/static/js/main.e989929c.js.map",
     "787.706db8dd.chunk.js.map": "/QRCodeTicketingSystemClient/static/js/787.706db8dd.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.18f6c031.js"
+    "static/js/main.e989929c.js"
   ]
 }
