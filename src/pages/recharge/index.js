@@ -26,7 +26,8 @@ export default () => {
   const [balance, setBalance] = useState("");
 
   const handleBalanceChange = (e) => {
-    setBalance(e.target.value);
+    if (e.target.value.match(/^\d*[1-9]\d*$/) || e.target.value === "")
+      setBalance(e.target.value);
   };
 
   const handleSubmitClick = () => {
